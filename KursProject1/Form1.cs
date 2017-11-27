@@ -17,7 +17,7 @@ namespace KursProject1
             var s = textBox1.Text;
             var tree = new Tree(s, new NodeTypeDeterminator());
             tree.ProcessTree(new Context.Context(new DifferentiationStrategiesSetter()));
-            tree.ProcessTree(new Context.Context(new SimplifyStrategiesSetter()));
+            tree.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter()));
             textBox2.Text = tree.Head.Output();
         }
     }

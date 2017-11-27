@@ -13,7 +13,7 @@ namespace KursProject1.Context
 
         public ElementOfTree Process(ElementOfTree element)
         {
-            return _strategies[element.Type].Process(element.Copy(), this);
+            return _strategies.Keys.Contains(element.Type) ? _strategies[element.Type].Process(element.Copy(), this) : element;
         }
     }
 }

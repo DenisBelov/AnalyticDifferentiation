@@ -8,7 +8,8 @@ namespace KursProject1.SimplifyStrategies
         {
             if (element.Left.Type == NodeType.Const && element.Right.Type == NodeType.Const)
             {
-                if (int.TryParse(element.Right.Node, out var a) && int.TryParse(element.Left.Node, out var b))
+                int a, b;
+                if (int.TryParse(element.Right.Node, out a) && int.TryParse(element.Left.Node, out b))
                 {
                     element.Node = (a * b).ToString();
                     element.Type = NodeType.Const;

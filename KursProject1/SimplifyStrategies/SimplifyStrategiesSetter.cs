@@ -9,7 +9,8 @@ namespace KursProject1.SimplifyStrategies
         {
             return new Dictionary<NodeType, IStrategy>
             {
-                {NodeType.Multiply, new MultiplySimplifyStrategy()}
+                {NodeType.Multiply, new MultiplySimplifyStrategy()},
+                {NodeType.PlusMinus, new PlusMinusSimplifyStrategy()}
             };
         }
     }
