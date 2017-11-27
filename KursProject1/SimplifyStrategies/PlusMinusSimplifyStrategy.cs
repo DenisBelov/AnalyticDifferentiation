@@ -17,6 +17,29 @@ namespace KursProject1.SimplifyStrategies {
                     return element;
                 }
             }
+            if(element.Right.Type == NodeType.Const && element.Right.Node == "0")
+            {
+                element = element.Left;
+                return element;
+            }
+            if (element.Left.Type == NodeType.Const && element.Left.Node == "0")
+            {
+                element = element.Right;
+            }
+            if (element.Left.Type == NodeType.Multiply && element.Right.Type == NodeType.Multiply 
+                && element.Left.Right.Equals(element.Right.Right))
+            {
+                var tempElemR = element.Right.Left.Copy();
+                var tempElemL = element.Left.Left.Copy();
+                
+                int a, b;
+                if (int.TryParse(tempElemL.Node, out a) && int.TryParse(tempElemR.Node, out b)) {
+                    element = element.Right;
+                    element.Left.Node = (a + b).ToString();
+                    return element;
+                }
+                return element;
+            }
             return element;
         }
     }

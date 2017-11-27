@@ -17,7 +17,8 @@ namespace KursProject1.DifferentiationStrategies
                 {NodeType.Multiply, new MultiplyProcessStrategy()},
                 {NodeType.PlusMinus, new PlusMinusProcessStrategy()},
                 {NodeType.Divide, new DivideProcessStrategy()},
-                {NodeType.X, new XProcessStrategy()}
+                {NodeType.X, new XProcessStrategy()},
+                {NodeType.Exp, new ExponentProcessStrategy()}
             };
         }
     }
