@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace KursProject1
 {
@@ -258,12 +259,12 @@ namespace KursProject1
                 S(s.Substring(1, s.Length - 2));
                 return;
             }
-            if (s[0]>47 && s[0]<58)
+            if (s[0]>47 && s[0]<58 || (new Regex("[A-W]|[Y-Z]", RegexOptions.IgnoreCase)).IsMatch(s))
             {
                 Z(s);
                 return;
             }
-            if (s=="X")
+            if (s=="X" || s=="x")
             {
                 Node = s;
                 return;
@@ -287,17 +288,33 @@ namespace KursProject1
             }
             else
             {
+                Regex constant = new Regex("[A-Z]|[Y-Z]", RegexOptions.IgnoreCase);
+                if (constant.IsMatch(s))
+                {
+                    Node = s;
+                    return;
+                }
                 N(s);
             }
         }
         public void N (string s)
         {
-            foreach (char ch in s)
+            Regex number = new Regex("[1-9][0-9]*");
+            if (number.IsMatch(s))
             {
-                if (!D(ch))
-                    throw new Exception("Степень записана некорректно!");
+                Node = s;
+                return;
             }
-            Node = s;
+            else
+            {
+                throw new Exception("Степень записана некорректно!");
+            }
+            //foreach (char ch in s)
+            //{
+            //    if (!D(ch))
+            //        throw new Exception("Степень записана некорректно!");
+            //}
+            //Node = s;
         }
         public bool D(char ch)
         {
