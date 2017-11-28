@@ -18,7 +18,7 @@ namespace KursProject1.DifferentiationStrategies
                 },
                 Left = new ElementOfTree
                 {
-                    Type = element.Type == NodeType.TanC ? NodeType.CosC : NodeType.Cos,
+                    Type = NodeType.Cos,
                     Node = element.Node.Replace("!", "]"),
                     Left = element.Left
                 }

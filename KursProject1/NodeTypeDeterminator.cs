@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
-namespace KursProject1
-{
-    class NodeTypeDeterminator
+namespace KursProject1 {
+    public class NodeTypeDeterminator
     {
         public void Determinate(ElementOfTree element)
         {
@@ -19,7 +13,7 @@ namespace KursProject1
             {
                 Determinate(element.Right);
             }
-            Regex Const= new Regex("[0-9]*|[a-z]", RegexOptions.IgnoreCase);
+            Regex Const= new Regex("[x]", RegexOptions.IgnoreCase);
             switch (element.Node)
             {
                 case "-":
@@ -34,54 +28,25 @@ namespace KursProject1
                 case "*": element.Type = NodeType.Multiply; return;
                 case "/": element.Type = NodeType.Divide; return;
                 case "^":
-                    if (element.Left.Type != NodeType.X && element.Left.Type != NodeType.Const)
-                    {
-                        element.Type = NodeType.DegreeC;
-                        return;
-                    }
                     element.Type = NodeType.Degree;
                     return;
                 case "[":
-                    if (element.Left.Type!=NodeType.X && element.Left.Type!=NodeType.Const)
-                    {
-                        element.Type = NodeType.SinC;
-                        return;
-                    }
                     element.Type = NodeType.Sin;
                     return;
                 case "]":
-                    if (element.Left.Type != NodeType.X && element.Left.Type != NodeType.Const)
-                    {
-                        element.Type = NodeType.CosC;
-                        return;
-                    }
                     element.Type = NodeType.Cos;
                     return;
                 case "!":
-                    if (element.Left.Type != NodeType.X && element.Left.Type != NodeType.Const)
-                    {
-                        element.Type = NodeType.TanC;
-                        return;
-                    }
                     element.Type = NodeType.Tan;
                     return;
                 case "?":
-                    if (element.Left.Type != NodeType.X && element.Left.Type != NodeType.Const)
-                    {
-                        element.Type = NodeType.LnC;
-                        return;
-                    }
                     element.Type = NodeType.Ln;
                     return;
                 case "#":
-                    if (element.Left.Type != NodeType.X && element.Left.Type != NodeType.Const)
-                    {
-                        element.Type = NodeType.ExpC;
-                        return;
-                    }
                     element.Type = NodeType.Exp;
                     return;
-                case "X": element.Type = NodeType.X; return;
+                case "X":
+                case "x": element.Type = NodeType.X; return;
                 default: element.Type = NodeType.Const; return;
             }
         }

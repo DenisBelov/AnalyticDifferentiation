@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace KursProject1
-{
-    class ElementOfTree
-    {
+namespace KursProject1 {
+    public class ElementOfTree {
         public string Node { get; set; }
         public ElementOfTree Left;
         public ElementOfTree Right;
@@ -22,10 +20,10 @@ namespace KursProject1
         }
         public void Determine()
         {
-            
+
         }
 
-        public string Output ()
+        public string Output()
         {
             if (Left != null && Right != null)
             {
@@ -33,30 +31,30 @@ namespace KursProject1
                 {
                     case "+":
                         {
-                            if (Right.Node=="-"&& Right.Right==null)
+                            if (Right.Node == "-" && Right.Right == null)
                             {
-                                return Left.Output() + Node + "("+ Right.Output()+")";
+                                return Left.Output() + Node + "(" + Right.Output() + ")";
                             }
                             return Left.Output() + Node + Right.Output();
                         }
                     case "-":
                         {
-                            if (Right.Node=="+"|| Right.Node=="-")
-                            return Left.Output() + Node + "(" + Right.Output() + ")";
+                            if (Right.Node == "+" || Right.Node == "-")
+                                return Left.Output() + Node + "(" + Right.Output() + ")";
                             else
                                 return Left.Output() + Node + Right.Output();
                         }
                     case "*":
                         {
-                            if (Left.Node=="/"|| Left.Node=="+"|| Left.Node=="-")
+                            if (Left.Node == "/" || Left.Node == "+" || Left.Node == "-")
                             {
                                 if (Right.Node == "/" || Right.Node == "+" || Right.Node == "-")
                                 {
-                                    return "("+ Left.Output() +")"+ Node + "(" + Right.Output() + ")";
+                                    return "(" + Left.Output() + ")" + Node + "(" + Right.Output() + ")";
                                 }
                                 else
                                 {
-                                    return "("+ Left.Output()+")" + Node + Right.Output();
+                                    return "(" + Left.Output() + ")" + Node + Right.Output();
                                 }
                             }
                             else
@@ -100,6 +98,7 @@ namespace KursProject1
                         {
                             if (Left.Node=="+"|| Left.Node =="-" || Left.Node =="*" || Left.Node =="/"
                                 || Left.Node =="[" || Left.Node =="]" || Left.Node =="!" || Left.Node =="?" || Left.Node =="#"|| Left.Node=="%")
+
                             {
                                 if (Right.Node == "-")
                                 {
@@ -122,14 +121,14 @@ namespace KursProject1
                                 }
                             }
                         }
-                    default: throw new Exception("Данные введены неверно!") ;
+                    default: throw new Exception("Данные введены неверно!");
                 }
             }
             if (Left != null && Right == null)
             {
                 if (Node == "-")
                 {
-                    if (Left.Node=="+" || Left.Node == "-" || Left.Node == "*" || Left.Node == "/")
+                    if (Left.Node == "+" || Left.Node == "-" || Left.Node == "*" || Left.Node == "/")
                     {
                         return Node + "(" + Left.Output() + ")";
                     }
@@ -148,7 +147,7 @@ namespace KursProject1
         public void S(string s)
         {
             int sk = 0;
-            for (int i = s.Length-1; i >= 0; i--)
+            for (int i = s.Length - 1; i >= 0; i--)
             {
                 if (s[i] == '(')
                 {
@@ -161,17 +160,17 @@ namespace KursProject1
                     sk--;
                     continue;
                 }
-                if ((s[i] == '+' || s[i] == '-' && i!=0) && sk == 0)
+                if ((s[i] == '+' || s[i] == '-' && i != 0) && sk == 0)
                 {
                     Node = s[i].ToString();
                     Left = new ElementOfTree();
                     Left.S(s.Substring(0, i));
                     Right = new ElementOfTree();
                     Right.T(s.Substring(i + 1));
-                        return;
+                    return;
                 }
             }
-            if (s[0]=='-')
+            if (s[0] == '-')
             {
                 Node = s[0].ToString();
                 Left = new ElementOfTree();
@@ -180,7 +179,7 @@ namespace KursProject1
             }
             T(s);
         }
-        public void T (string s)
+        public void T(string s)
         {
             int sk = 0;
             int divide = -1;
@@ -205,19 +204,19 @@ namespace KursProject1
                         divide = i;
                     }
                     else
-                        if (s[i] == '*' && multiply==-1)
+                        if (s[i] == '*' && multiply == -1)
                     {
                         multiply = i;
                     }
                     else
-                        if (s[i]=='^' && degree==-1)
+                        if (s[i] == '^' && degree == -1)
                     {
                         degree = i;
                     }
-                 }
+                }
             }
 
-            if (divide!=-1)
+            if (divide != -1)
             {
                 Node = s[divide].ToString();
                 Left = new ElementOfTree();
@@ -228,7 +227,7 @@ namespace KursProject1
             }
             else
             {
-                if (multiply!=-1)
+                if (multiply != -1)
                 {
                     Node = s[multiply].ToString();
                     Left = new ElementOfTree();
@@ -239,7 +238,7 @@ namespace KursProject1
                 }
                 else
                 {
-                    if (degree!=-1)
+                    if (degree != -1)
                     {
                         Node = s[degree].ToString();
                         Left = new ElementOfTree();
@@ -252,9 +251,9 @@ namespace KursProject1
             }
             M(s);
         }
-        public void M (string s)
+        public void M(string s)
         {
-            if (s[0]=='('&& s[s.Length-1]==')')
+            if (s[0] == '(' && s[s.Length - 1] == ')')
             {
                 S(s.Substring(1, s.Length - 2));
                 return;
@@ -264,18 +263,18 @@ namespace KursProject1
                 Z(s);
                 return;
             }
-            if (s=="X" || s=="x")
+            if (s == "X" || s == "x")
             {
                 Node = s;
                 return;
             }
             F(s);
         }
-        public void Z (string s)
+        public void Z(string s)
         {
-            if (s[0]=='('&& s[s.Length-1]==')')
+            if (s[0] == '(' && s[s.Length - 1] == ')')
             {
-                if (s[1]=='-')
+                if (s[1] == '-')
                 {
                     Node = "-";
                     Left = new ElementOfTree();
@@ -297,7 +296,7 @@ namespace KursProject1
                 N(s);
             }
         }
-        public void N (string s)
+        public void N(string s)
         {
             Regex number = new Regex("[1-9][0-9]*");
             if (number.IsMatch(s))
@@ -323,11 +322,11 @@ namespace KursProject1
             return false;
         }
 
-        public void F (string s)
+        public void F(string s)
         {
             switch (s[0])
             {
-                case '[': Node = "["; Left=new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                case '[': Node = "["; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                 case ']': Node = "]"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                 case '!': Node = "!"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                 case '?': Node = "?"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
@@ -336,6 +335,13 @@ namespace KursProject1
                 default: throw new Exception("Ошибка в записи функции!");
             }
 
+        }
+        public override bool Equals(object obj)
+        {
+            var el = obj as ElementOfTree;
+            return el.Node == Node
+                && !(el.Right != null ^ Right != null) && Right == el.Right
+                && !(el.Left != null ^ Left != null) && Left == el.Left;
         }
     }
 }

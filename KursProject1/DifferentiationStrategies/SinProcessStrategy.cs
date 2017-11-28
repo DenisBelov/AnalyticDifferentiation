@@ -8,7 +8,7 @@ namespace KursProject1.DifferentiationStrategies
             var tempElem = element.Copy();
             element.Right = new ElementOfTree
             {
-                Type = element.Type == NodeType.SinC ? NodeType.CosC : NodeType.Cos,
+                Type = NodeType.Cos,
                 Node = element.Node.Replace("[", "]"),
                 Left = element.Left
             };

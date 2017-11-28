@@ -4,6 +4,6 @@ namespace KursProject1.Context
 {
     interface IStrategiesSetter
     {
-        IDictionary<NodeType, IStrategy> GetStrategies();
+        IDictionary<NodeType, List<IStrategy>> GetStrategies();
     }
 }

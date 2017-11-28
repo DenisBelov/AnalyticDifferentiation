@@ -21,14 +21,14 @@ namespace KursProject1.DifferentiationStrategies
                     {
                         Type = NodeType.PlusMinus,
                         Node = "-",
-                        Right = new ElementOfTree
+                        Left = new ElementOfTree
                         {
                             Node = "1",
                             Type = NodeType.Const
                         },
-                        Left = element.Right
+                        Right = element.Right
                     },
-                    Left = element.Right 
+                    Left = element.Left
                 }
             };
             element.Left = context.Process(element.Left.Copy());

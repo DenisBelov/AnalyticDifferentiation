@@ -7,7 +7,7 @@ namespace KursProject1.DifferentiationStrategies
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
             var tempElem = element.Copy();
-            tempElem.Type = tempElem.Type == NodeType.Cos ? NodeType.Sin : NodeType.SinC;
+            tempElem.Type = NodeType.Sin;
             tempElem.Node = tempElem.Node.Replace("]", "[");
             element.Left = context.Process(element.Left.Copy());
             element.Right = new ElementOfTree

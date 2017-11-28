@@ -2,7 +2,7 @@
 
 namespace KursProject1
 {
-    class Tree
+    public class Tree
     {
         public ElementOfTree Head { get; private set; }
         
