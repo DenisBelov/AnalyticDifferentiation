@@ -6,6 +6,7 @@ namespace KursProject1.SimplifyStrategies
     {
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
+            ((SimplifyContext) context).IsChanged = true;
             if (element.Right.Type == NodeType.Const && element.Right.Node == "1")
             {
                 element = element.Left;

@@ -13,8 +13,8 @@ namespace KursProject1 {
             return new ElementOfTree
             {
                 Node = Node,
-                Left = Left,
-                Right = Right,
+                Left = Left?.Copy(),
+                Right = Right?.Copy(),
                 Type = Type
             };
         }

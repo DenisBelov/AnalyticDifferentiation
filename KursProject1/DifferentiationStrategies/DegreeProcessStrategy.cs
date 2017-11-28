@@ -8,11 +8,14 @@ namespace KursProject1.DifferentiationStrategies
         {
             element.Type = NodeType.Multiply;
             element.Node = "*";
+            var tempL = element.Left.Copy();
+            var tempR = element.Right.Copy();
+            element.Left = context.Process(element.Left);
             element.Right = new ElementOfTree
             {
                 Node = "*",
                 Type = NodeType.Multiply,
-                Left = element.Right,
+                Left = tempR,
                 Right = new ElementOfTree
                 {
                     Node = "^",
@@ -21,17 +24,17 @@ namespace KursProject1.DifferentiationStrategies
                     {
                         Type = NodeType.PlusMinus,
                         Node = "-",
-                        Left = new ElementOfTree
+                        Left = element.Right.Copy(),
+                        Right =  new ElementOfTree
                         {
                             Node = "1",
                             Type = NodeType.Const
-                        },
-                        Right = element.Right
+                        }
                     },
-                    Left = element.Left
+                    Left = tempL
                 }
             };
-            element.Left = context.Process(element.Left.Copy());
+            
             return element;
         }
     }

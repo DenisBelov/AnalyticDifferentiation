@@ -6,7 +6,8 @@ namespace KursProject1.SimplifyStrategies
     {
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
-            if (element.Left.Type == NodeType.Const && element.Right.Type == NodeType.Const)
+            ((SimplifyContext)context).IsChanged = true;
+            if (element.Left?.Type == NodeType.Const && element.Right?.Type == NodeType.Const)
             {
                 int a, b;
                 if (int.TryParse(element.Right.Node, out a) && int.TryParse(element.Left.Node, out b))

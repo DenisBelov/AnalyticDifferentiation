@@ -6,7 +6,8 @@ namespace KursProject1.SimplifyStrategies
     {
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
-            if (element.Type == NodeType.Multiply && element.Right.Type == NodeType.Const && element.Left.Type != NodeType.Const)
+            ((SimplifyContext)context).IsChanged = true;
+            if (element.Type == NodeType.Multiply && element.Right?.Type == NodeType.Const && element.Left?.Type != NodeType.Const)
             {
                 var temp = element.Right;
                 element.Right = element.Left;

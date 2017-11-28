@@ -13,5 +13,6 @@
         Exp,
         X,
         Const,
+        Sqrt
     }
 }

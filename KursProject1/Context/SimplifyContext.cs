@@ -47,6 +47,10 @@ namespace KursProject1.Context
                     element = strategy.Process(element, this);
                 }
             }
+            else
+            {
+                IsChanged = false;
+            }
             return element;
         }
     }
