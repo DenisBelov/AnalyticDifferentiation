@@ -305,13 +305,13 @@ namespace KursProject1 {
         }
         public void N(string s)
         {
-            Regex number = new Regex("[1-9][0-9]*");
+            Regex number = new Regex("^[1-9][0-9]*$");
             if (number.IsMatch(s))
             {
                 Node = s;
                 return;
             }
-            throw new Exception("Степень записана некорректно!");
+            throw new Exception("Число записано некорректно!");
             //foreach (char ch in s)
             //{
             //    if (!D(ch))
