@@ -36,9 +36,10 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.DifferentiationBox = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.chkSimpliestForm = new System.Windows.Forms.CheckBox();
+            this.chkSimplify = new System.Windows.Forms.CheckBox();
             this.btnSimplify = new System.Windows.Forms.Button();
-            this.chkbtnSimplify = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.DifferentiationBox.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +48,7 @@
             // 
             this.btnProcess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnProcess.Location = new System.Drawing.Point(543, 21);
-            this.btnProcess.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnProcess.Margin = new System.Windows.Forms.Padding(2);
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.Size = new System.Drawing.Size(93, 21);
             this.btnProcess.TabIndex = 0;
@@ -60,7 +61,7 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(101, 22);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(438, 20);
             this.textBox1.TabIndex = 1;
@@ -70,7 +71,7 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(101, 61);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(438, 20);
             this.textBox2.TabIndex = 2;
@@ -113,7 +114,8 @@
             this.DifferentiationBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DifferentiationBox.Controls.Add(this.chkbtnSimplify);
+            this.DifferentiationBox.Controls.Add(this.chkSimpliestForm);
+            this.DifferentiationBox.Controls.Add(this.chkSimplify);
             this.DifferentiationBox.Controls.Add(this.btnSimplify);
             this.DifferentiationBox.Controls.Add(this.textBox1);
             this.DifferentiationBox.Controls.Add(this.btnProcess);
@@ -127,14 +129,26 @@
             this.DifferentiationBox.TabStop = false;
             this.DifferentiationBox.Text = "DifferentiationBox";
             // 
-            // label2
+            // chkSimpliestForm
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 64);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Result expression";
+            this.chkSimpliestForm.AutoSize = true;
+            this.chkSimpliestForm.Location = new System.Drawing.Point(217, 87);
+            this.chkSimpliestForm.Name = "chkSimpliestForm";
+            this.chkSimpliestForm.Size = new System.Drawing.Size(156, 17);
+            this.chkSimpliestForm.TabIndex = 7;
+            this.chkSimpliestForm.Text = "Simplify to the simpliest form";
+            this.chkSimpliestForm.UseVisualStyleBackColor = true;
+            // 
+            // chkSimplify
+            // 
+            this.chkSimplify.AutoSize = true;
+            this.chkSimplify.Location = new System.Drawing.Point(101, 87);
+            this.chkSimplify.Name = "chkSimplify";
+            this.chkSimplify.Size = new System.Drawing.Size(110, 17);
+            this.chkSimplify.TabIndex = 7;
+            this.chkSimplify.Text = "Simplify by default";
+            this.chkSimplify.UseVisualStyleBackColor = true;
+            this.chkSimplify.CheckedChanged += new System.EventHandler(this.chkbtnSimplify_CheckedChanged);
             // 
             // btnSimplify
             // 
@@ -146,16 +160,14 @@
             this.btnSimplify.UseVisualStyleBackColor = true;
             this.btnSimplify.Click += new System.EventHandler(this.btnSimplify_Click);
             // 
-            // chkbtnSimplify
+            // label2
             // 
-            this.chkbtnSimplify.AutoSize = true;
-            this.chkbtnSimplify.Location = new System.Drawing.Point(101, 87);
-            this.chkbtnSimplify.Name = "chkbtnSimplify";
-            this.chkbtnSimplify.Size = new System.Drawing.Size(110, 17);
-            this.chkbtnSimplify.TabIndex = 7;
-            this.chkbtnSimplify.Text = "Simplify by default";
-            this.chkbtnSimplify.UseVisualStyleBackColor = true;
-            this.chkbtnSimplify.CheckedChanged += new System.EventHandler(this.chkbtnSimplify_CheckedChanged);
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Result expression";
             // 
             // Form1
             // 
@@ -165,7 +177,7 @@
             this.Controls.Add(this.DifferentiationBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
@@ -188,8 +200,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox DifferentiationBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox chkbtnSimplify;
+        private System.Windows.Forms.CheckBox chkSimplify;
         private System.Windows.Forms.Button btnSimplify;
+        private System.Windows.Forms.CheckBox chkSimpliestForm;
     }
 }
 

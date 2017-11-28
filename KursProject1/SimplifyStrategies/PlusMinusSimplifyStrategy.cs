@@ -50,6 +50,25 @@ namespace KursProject1.SimplifyStrategies {
                 };
                 element.Node = "*";
             }
+            if (element.Right?.Type == NodeType.MinusU && element.Left.Type == NodeType.Const)
+            {
+                int a, b;
+                if (int.TryParse(element.Right?.Left.Node, out a) && int.TryParse(element.Left.Node, out b))
+                {
+                    if (element.Node == "-")
+                    {
+                        element.Right.Left.Node = (a + b).ToString();
+                    }
+                    else
+                    {
+                        element.Right.Left.Node = (a - b).ToString();
+                    }
+                    element = element.Right;
+                    return element;
+                }
+                
+            }
+            ((SimplifyContext) context).IsChanged = false;
             return element;
         }
     }

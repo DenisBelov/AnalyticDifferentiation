@@ -12,6 +12,7 @@ namespace KursProject1.SimplifyStrategies
                 element.Right = element.Left;
                 element.Left = temp;
             }
+            ((SimplifyContext)context).IsChanged = false;
             return element;
         }
     }

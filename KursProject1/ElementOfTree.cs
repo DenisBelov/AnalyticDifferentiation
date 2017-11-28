@@ -154,7 +154,6 @@ namespace KursProject1 {
                     sk++;
                     continue;
                 }
-                else
                 if (s[i] == ')')
                 {
                     sk--;
@@ -258,7 +257,7 @@ namespace KursProject1 {
                 S(s.Substring(1, s.Length - 2));
                 return;
             }
-            if (s[0]>47 && s[0]<58 || (new Regex("[a-w]|[y-z]", RegexOptions.IgnoreCase)).IsMatch(s))
+            if (s[0]>47 && s[0]<58 || (new Regex("^([a-w]|[y-z])$", RegexOptions.IgnoreCase)).IsMatch(s))
             {
                 Z(s);
                 return;
@@ -287,7 +286,7 @@ namespace KursProject1 {
             }
             else
             {
-                Regex constant = new Regex("[A-Z]|[Y-Z]", RegexOptions.IgnoreCase);
+                Regex constant = new Regex("^([a-w]|[y-z])$", RegexOptions.IgnoreCase);
                 if (constant.IsMatch(s))
                 {
                     Node = s;
@@ -304,10 +303,7 @@ namespace KursProject1 {
                 Node = s;
                 return;
             }
-            else
-            {
-                throw new Exception("Степень записана некорректно!");
-            }
+            throw new Exception("Степень записана некорректно!");
             //foreach (char ch in s)
             //{
             //    if (!D(ch))

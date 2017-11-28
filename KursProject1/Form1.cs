@@ -17,16 +17,14 @@ namespace KursProject1
         private void button1_Click(object sender, EventArgs e)
         {
             var s = textBox1.Text.Replace(" ", String.Empty);
-
-            var chkbtn = sender as CheckBox;
             
             Tree = new Tree(s, new NodeTypeDeterminator());
 
             Tree.ProcessTree(new Context.Context(new DifferentiationStrategiesSetter()));
 
-            if (chkbtn?.Checked ?? false)
+            if (chkSimplify?.Checked ?? false)
             {
-                Tree.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter()));
+                Tree.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter(), chkSimpliestForm?.Checked ?? false));
             }
 
             textBox2.Text = Tree.Head.Output();
@@ -40,7 +38,7 @@ namespace KursProject1
 
         private void btnSimplify_Click(object sender, EventArgs e)
         {
-            Tree?.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter()));
+            Tree?.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter(), chkSimpliestForm?.Checked ?? false));
             textBox2.Text = Tree?.Head.Output();
         }
     }

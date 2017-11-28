@@ -83,6 +83,7 @@ namespace KursProject1.SimplifyStrategies
                     element.Right = element.Right.Right;
                 }
             }
+            ((SimplifyContext)context).IsChanged = false;
             return element;
         }
     }

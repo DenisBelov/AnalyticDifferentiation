@@ -20,6 +20,7 @@ namespace KursProject1.SimplifyStrategies
                 };
                 return element;
             }
+            ((SimplifyContext)context).IsChanged = false;
             return element;
         }
     }
