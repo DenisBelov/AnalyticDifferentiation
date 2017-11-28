@@ -17,6 +17,7 @@ namespace KursProject1.Context
 
         public ElementOfTree Process(ElementOfTree element)
         {
+           
             if (element.Right != null)
             {
                 element.Right = Process(element.Right);
@@ -27,6 +28,7 @@ namespace KursProject1.Context
             }
             if (ToTheSimpliestForm)
             {
+                IsChanged = true;
                 while (IsChanged)
                 {
                     element = ProcessElement(element);
