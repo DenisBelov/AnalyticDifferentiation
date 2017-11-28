@@ -128,14 +128,22 @@ namespace KursProject1 {
             {
                 if (Node == "-")
                 {
-                    if (Left.Node == "+" || Left.Node == "-" || Left.Node == "*" || Left.Node == "/")
+                    if (Left.Node == "+" || Left.Node == "-" )
                     {
                         return Node + "(" + Left.Output() + ")";
                     }
                     else
                     {
-                        return Node + Left.Output();
+                        if (Left.Node == "*" || Left.Node == "/")
+                        {
+                            return Node + Left.Output();
+                        }
+                        else
+                        {
+                            return Node + Left.Output();
+                        }
                     }
+                    
                 }
                 else
                 {
