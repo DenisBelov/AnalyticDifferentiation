@@ -24,7 +24,7 @@ namespace KursProject1
             s = Regex.Replace(s, "[l][n]", "?", RegexOptions.IgnoreCase);
             s = Regex.Replace(s, "[e][x][p]", "#", RegexOptions.IgnoreCase);
             s = Regex.Replace(s, "[s][q][r][t]", "%", RegexOptions.IgnoreCase);
-            var changedS = textBox1.Text.Replace(" ", String.Empty);
+
 
             Tree = new Tree(s, new NodeTypeDeterminator());
 
