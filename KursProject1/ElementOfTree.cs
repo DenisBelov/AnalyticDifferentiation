@@ -99,7 +99,7 @@ namespace KursProject1
                     case "^":
                         {
                             if (Left.Node=="+"|| Left.Node =="-" || Left.Node =="*" || Left.Node =="/"
-                                || Left.Node =="[" || Left.Node =="]" || Left.Node =="!" || Left.Node =="?" || Left.Node =="#")
+                                || Left.Node =="[" || Left.Node =="]" || Left.Node =="!" || Left.Node =="?" || Left.Node =="#"|| Left.Node=="%")
                             {
                                 if (Right.Node == "-")
                                 {
@@ -259,7 +259,7 @@ namespace KursProject1
                 S(s.Substring(1, s.Length - 2));
                 return;
             }
-            if (s[0]>47 && s[0]<58 || (new Regex("[A-W]|[Y-Z]", RegexOptions.IgnoreCase)).IsMatch(s))
+            if (s[0]>47 && s[0]<58 || (new Regex("[a-w]|[y-z]", RegexOptions.IgnoreCase)).IsMatch(s))
             {
                 Z(s);
                 return;
@@ -332,6 +332,7 @@ namespace KursProject1
                 case '!': Node = "!"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                 case '?': Node = "?"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                 case '#': Node = "#"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                case '%': Node = "%"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                 default: throw new Exception("Ошибка в записи функции!");
             }
 
