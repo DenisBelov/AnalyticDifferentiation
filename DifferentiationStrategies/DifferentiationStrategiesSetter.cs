@@ -18,7 +18,8 @@ namespace KursProject1.DifferentiationStrategies
                 {NodeType.PlusMinus,  new List<IStrategy>{new PlusMinusProcessStrategy()}},
                 {NodeType.Divide,  new List<IStrategy>{new DivideProcessStrategy()}},
                 {NodeType.X,  new List<IStrategy>{new XProcessStrategy()}},
-                {NodeType.Exp,  new List<IStrategy>{new ExponentProcessStrategy()}}
+                {NodeType.Exp,  new List<IStrategy>{new ExponentProcessStrategy()}},
+                {NodeType.Tan, new List<IStrategy> {new TanProcessStrategy() } }
             };
         }
     }

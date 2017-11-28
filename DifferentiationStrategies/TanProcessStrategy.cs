@@ -6,7 +6,6 @@ namespace KursProject1.DifferentiationStrategies
     {
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
-            
             element.Right = new ElementOfTree
             {
                 Type = NodeType.Degree,
@@ -19,7 +18,7 @@ namespace KursProject1.DifferentiationStrategies
                 Left = new ElementOfTree
                 {
                     Type = NodeType.Cos,
-                    Node = element.Node.Replace("!", "]"),
+                    Node = "!",
                     Left = element.Left
                 }
             };
