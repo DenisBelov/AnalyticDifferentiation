@@ -1,7 +1,7 @@
 ﻿using System.Text.RegularExpressions;
 
 namespace KursProject1 {
-    class NodeTypeDeterminator
+    public class NodeTypeDeterminator
     {
         public void Determinate(ElementOfTree element)
         {

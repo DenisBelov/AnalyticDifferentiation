@@ -2,7 +2,7 @@
 using System.Text.RegularExpressions;
 
 namespace KursProject1 {
-    class ElementOfTree {
+    public class ElementOfTree {
         public string Node { get; set; }
         public ElementOfTree Left;
         public ElementOfTree Right;

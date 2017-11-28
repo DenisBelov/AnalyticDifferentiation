@@ -4,7 +4,7 @@ namespace KursProject1.Context
 {
     class Context : IContext
     {
-        readonly IDictionary<NodeType, IStrategy> _strategies;
+        readonly IDictionary<NodeType, List<IStrategy>> _strategies;
 
         public Context(IStrategiesSetter setter)
         {
@@ -13,7 +13,14 @@ namespace KursProject1.Context
 
         public ElementOfTree Process(ElementOfTree element)
         {
-            return _strategies.Keys.Contains(element.Type) ? _strategies[element.Type].Process(element.Copy(), this) : element;
+            if (_strategies.Keys.Contains(element.Type))
+            {
+                foreach (var strategy in _strategies[element.Type])
+                {
+                    element = strategy.Process(element, this);
+                }
+            }
+            return element;
         }
     }
 }

@@ -5,20 +5,20 @@ namespace KursProject1.DifferentiationStrategies
 {
     class DifferentiationStrategiesSetter : IStrategiesSetter
     {
-        public IDictionary<NodeType, IStrategy> GetStrategies()
+        public IDictionary<NodeType, List<IStrategy>> GetStrategies()
         {
-            return new Dictionary<NodeType, IStrategy>
+            return new Dictionary<NodeType, List<IStrategy>>
             {
-                {NodeType.Const, new ConstProcessStrategy()},
-                {NodeType.Cos, new CosProcessStrategy()},
-                {NodeType.Degree, new DegreeProcessStrategy()},
-                {NodeType.Sin, new SinProcessStrategy()},
-                {NodeType.Ln, new LogarifmProcessStrategy()},
-                {NodeType.Multiply, new MultiplyProcessStrategy()},
-                {NodeType.PlusMinus, new PlusMinusProcessStrategy()},
-                {NodeType.Divide, new DivideProcessStrategy()},
-                {NodeType.X, new XProcessStrategy()},
-                {NodeType.Exp, new ExponentProcessStrategy()}
+                {NodeType.Const, new List<IStrategy>{ new ConstProcessStrategy()}},
+                {NodeType.Cos,  new List<IStrategy>{new CosProcessStrategy()}},
+                {NodeType.Degree,  new List<IStrategy>{new DegreeProcessStrategy()}},
+                {NodeType.Sin,  new List<IStrategy>{new SinProcessStrategy()}},
+                {NodeType.Ln,  new List<IStrategy>{new LogarifmProcessStrategy()}},
+                {NodeType.Multiply,  new List<IStrategy>{new MultiplyProcessStrategy()}},
+                {NodeType.PlusMinus,  new List<IStrategy>{new PlusMinusProcessStrategy()}},
+                {NodeType.Divide,  new List<IStrategy>{new DivideProcessStrategy()}},
+                {NodeType.X,  new List<IStrategy>{new XProcessStrategy()}},
+                {NodeType.Exp,  new List<IStrategy>{new ExponentProcessStrategy()}}
             };
         }
     }

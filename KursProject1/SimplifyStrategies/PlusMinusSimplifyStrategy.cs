@@ -40,6 +40,16 @@ namespace KursProject1.SimplifyStrategies {
                 }
                 return element;
             }
+            if (element.Right?.Type == NodeType.X && element.Left?.Type == NodeType.X)
+            {
+                element.Type = NodeType.Multiply;
+                element.Left = new ElementOfTree
+                {
+                    Node = "2",
+                    Type = NodeType.Const
+                };
+                element.Node = "*";
+            }
             return element;
         }
     }

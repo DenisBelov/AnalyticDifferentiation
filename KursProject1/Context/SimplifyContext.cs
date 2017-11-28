@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace KursProject1.Context {
     class SimplifyContext : IContext {
-        readonly IDictionary<NodeType, IStrategy> _strategies;
+        readonly IDictionary<NodeType, List<IStrategy>> _strategies;
 
         public SimplifyContext(IStrategiesSetter setter)
         {
@@ -26,7 +22,14 @@ namespace KursProject1.Context {
         }
         private ElementOfTree ProcessElement(ElementOfTree element)
         {
-            return _strategies.Keys.Contains(element.Type) ? _strategies[element.Type].Process(element, this) : element;
+            if (_strategies.Keys.Contains(element.Type))
+            {
+                foreach (var strategy in _strategies[element.Type])
+                {
+                    element = strategy.Process(element, this);
+                }
+            }
+            return element;
         }
     }
 }
