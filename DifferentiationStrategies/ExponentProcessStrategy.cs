@@ -7,7 +7,7 @@ namespace KursProject1.DifferentiationStrategies {
         {
             element.Right = element.Copy();
             element.Type = NodeType.Multiply;
-            element.Left = context.Process(element.Right?.Left);
+            element.Left = context.Process(element.Right?.Left.Copy());
             element.Node = "*";
             return element;
         }

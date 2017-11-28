@@ -52,6 +52,7 @@
     <Compile Include="DifferentiationStrategies\ExponentProcessStrategy.cs" />
     <Compile Include="DifferentiationStrategies\MinusUProcessStrategy.cs" />
     <Compile Include="ElementOfTree.cs" />
+    <Compile Include="FileReader.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
