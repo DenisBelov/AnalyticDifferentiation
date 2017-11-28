@@ -7,7 +7,7 @@ namespace KursProject1.DifferentiationStrategies {
         {
             var result = new ElementOfTree
             {
-                Right = context.Process(element.Right.Copy()),
+                Right = context.Process(element.Left.Copy()),
                 Left = new ElementOfTree
                 {
                     Left = new ElementOfTree

@@ -45,6 +45,9 @@ namespace KursProject1 {
                 case "#":
                     element.Type = NodeType.Exp;
                     return;
+                case "%":
+                    element.Type = NodeType.Sqrt;
+                    return;
                 case "X":
                 case "x": element.Type = NodeType.X; return;
                 default: element.Type = NodeType.Const; return;
