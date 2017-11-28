@@ -18,7 +18,7 @@ namespace KursProject1.DifferentiationStrategies
                 Left = new ElementOfTree
                 {
                     Type = NodeType.Cos,
-                    Node = "!",
+                    Node = "]",
                     Left = element.Left
                 }
             };
@@ -27,6 +27,8 @@ namespace KursProject1.DifferentiationStrategies
                 Node = "1",
                 Type = NodeType.Const,
             };
+            element.Type = NodeType.Divide;
+            element.Node = "/";
             return element;
         }
     }
