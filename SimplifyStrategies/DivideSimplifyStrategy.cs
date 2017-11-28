@@ -1,10 +1,4 @@
 ﻿using KursProject1.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace KursProject1.SimplifyStrategies {
     class DivideSimplifyStrategy : IStrategy {
         public ElementOfTree Process(ElementOfTree element, IContext context)
@@ -18,6 +12,11 @@ namespace KursProject1.SimplifyStrategies {
             if(element.Left.Type == NodeType.Const && element.Left.Node == "0")
             {
                 element = element.Right;
+                return element;
+            }
+            if (element.Right.Type == NodeType.Const && element.Right.Node == "1")
+            {
+                element = element.Left;
                 return element;
             }
             return element;

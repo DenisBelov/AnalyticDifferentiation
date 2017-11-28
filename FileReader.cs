@@ -1,15 +1,13 @@
-﻿namespace KursProject1 {
-    class FileReader {
-        public string FilePath { get; set; }
+﻿using System.IO;
 
-        public FileReader(string filePath)
+namespace KursProject1 {
+    public static class FileReader {
+        public static string GetExpressionFromFile(string filePath)
         {
-            FilePath = filePath;
-        }
-
-        public Tree GetTreeFromFile()
-        {
-            return null;
+            var stream = new StreamReader(new FileStream(filePath, FileMode.Open));
+            string expression = stream.ReadToEnd();
+            expression.Replace(" ", string.Empty);
+            return expression;
         }
     }
 }

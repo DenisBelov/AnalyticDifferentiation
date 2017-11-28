@@ -4,10 +4,8 @@ using KursProject1.DifferentiationStrategies;
 using KursProject1.SimplifyStrategies;
 using System.Text.RegularExpressions;
 
-namespace KursProject1
-{
-    public partial class Form1 : Form
-    {
+namespace KursProject1 {
+    public partial class Form1 : Form {
         public Tree Tree { get; set; }
 
         public Form1()
@@ -61,6 +59,20 @@ namespace KursProject1
             result = Regex.Replace(result, "[#]", "exp");
             result = Regex.Replace(result, "[%]", "sqrt");
             textBox2.Text = result;
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                textBox1.Text = FileReader.GetExpressionFromFile(openFileDialog1.FileName);
+            }
+            
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new HelpForm().Show();
         }
     }
 }
