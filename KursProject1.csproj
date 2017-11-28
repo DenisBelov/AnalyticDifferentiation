@@ -51,6 +51,7 @@
     <Compile Include="DifferentiationStrategies\DifferentiationStrategiesSetter.cs" />
     <Compile Include="DifferentiationStrategies\ExponentProcessStrategy.cs" />
     <Compile Include="DifferentiationStrategies\MinusUProcessStrategy.cs" />
+    <Compile Include="DifferentiationStrategies\SqrtProcessStrategy.cs" />
     <Compile Include="ElementOfTree.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Form1.cs">

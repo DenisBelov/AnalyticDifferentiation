@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KursProject1 {
+﻿namespace KursProject1 {
     class FileReader {
         public string FilePath { get; set; }
 
+        public FileReader(string filePath)
+        {
+            FilePath = filePath;
+        }
+
+        public Tree GetTreeFromFile()
+        {
+            return null;
+        }
     }
 }
