@@ -3,12 +3,15 @@ using System.Windows.Forms;
 using KursProject1.DifferentiationStrategies;
 using KursProject1.SimplifyStrategies;
 using System.Text.RegularExpressions;
+using System.Threading;
+using System.Globalization;
+using System.ComponentModel;
 
 namespace KursProject1 {
-    public partial class Form1 : Form {
+    public partial class MainForm : Form {
         public Tree Tree { get; set; }
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -73,6 +76,62 @@ namespace KursProject1 {
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new HelpForm().Show();
+        }
+
+        private void englishToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("en-US");
+        }
+
+        private void françaisToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("fr-FR");
+        }
+
+        private void русскийToolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("ru-RU");
+        }
+
+        private void ChangeLanguage(string culture)
+        {
+            var cultureInfo = new CultureInfo(culture);
+            var forms = Application.OpenForms;
+            foreach (var form in forms)
+            {
+                var manager = new ComponentResourceManager(form.GetType());
+                foreach (Control control in ((Form) form).Controls)
+                {
+                    ChangeControl(control, cultureInfo, manager);
+                }
+            }
+        }
+
+        private void ChangeControl(Control control, CultureInfo info, ComponentResourceManager manager)
+        {
+            foreach(Control c in control.Controls)
+            {
+                ChangeControl(c, info, manager);
+                manager.ApplyResources(c, c.Name, info);
+            }
+            if(control is MenuStrip)
+            {
+                foreach (ToolStripMenuItem c in (control as MenuStrip).Items)
+                {
+                    ChangeMetuItem(c as ToolStripMenuItem, info, manager);
+                    manager.ApplyResources(c, c.Name, info);
+                }
+            }
+            manager.ApplyResources(control, control.Name, info);
+        }
+
+        private void ChangeMetuItem(ToolStripMenuItem item, CultureInfo info, ComponentResourceManager manager)
+        {
+            foreach (ToolStripMenuItem c in item.DropDownItems)
+            {
+                ChangeMetuItem(c, info, manager);
+                manager.ApplyResources(c, c.Name, info);
+            }
         }
     }
 }
