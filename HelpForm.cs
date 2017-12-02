@@ -6,7 +6,10 @@ namespace KursProject1 {
         public HelpForm()
         {
             InitializeComponent();
-            richTextBox1.Rtf = new StreamReader(new FileStream("help.rtf", FileMode.Open)).ReadToEnd();
+            using (var stream = new FileStream("help.rtf", FileMode.Open))
+            {
+                richTextBox1.Rtf = new StreamReader(stream).ReadToEnd();
+            }
         }
     }
 }
