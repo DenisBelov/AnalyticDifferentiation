@@ -1,4 +1,5 @@
 ﻿using KursProject1.Context;
+
 namespace KursProject1.SimplifyStrategies {
     class DivideSimplifyStrategy : IStrategy {
         public ElementOfTree Process(ElementOfTree element, IContext context)

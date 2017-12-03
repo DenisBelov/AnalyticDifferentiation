@@ -1,54 +1,53 @@
 ﻿using System;
-using System.Windows.Forms;
-using KursProject1.DifferentiationStrategies;
-using KursProject1.SimplifyStrategies;
+using System.ComponentModel;
+using System.Globalization;
+using System.Resources;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Globalization;
-using System.ComponentModel;
+using System.Windows.Forms;
+using KursProject1.Context;
+using KursProject1.DifferentiationStrategies;
+using KursProject1.Exceptions;
+using KursProject1.SimplifyStrategies;
 
 namespace KursProject1 {
     public partial class MainForm : Form {
         public Tree Tree { get; set; }
+        public ResourceManager ResourceManager { get; set; }
 
         public MainForm()
         {
+            ResourceManager = new ResourceManager("KursProject1.ExceptionLocalization", typeof(MainForm).Assembly);
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //try {
+            
             var s = textBox1.Text.Replace(" ", String.Empty);
-                s = Regex.Replace(s, "[s][i][n]", "[", RegexOptions.IgnoreCase);
-                s = Regex.Replace(s, "[c][o][s]", "]", RegexOptions.IgnoreCase);
-                s = Regex.Replace(s, "[t][a][n]", "!", RegexOptions.IgnoreCase);
-                s = Regex.Replace(s, "[l][n]", "?", RegexOptions.IgnoreCase);
-                s = Regex.Replace(s, "[e][x][p]", "#", RegexOptions.IgnoreCase);
-                s = Regex.Replace(s, "[s][q][r][t]", "%", RegexOptions.IgnoreCase);
 
 
+            try
+            {
                 Tree = new Tree(s, new NodeTypeDeterminator());
+
 
                 Tree.ProcessTree(new Context.Context(new DifferentiationStrategiesSetter()));
 
                 if (chkSimplify?.Checked ?? false)
                 {
-                    Tree.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter(), chkSimpliestForm?.Checked ?? false));
+                    Tree.ProcessTree(new SimplifyContext(new SimplifyStrategiesSetter(),
+                        chkSimpliestForm?.Checked ?? false));
                 }
-                string result = Tree.Head.Output();
-                result = Regex.Replace(result, "[[]", "sin");
-                result = Regex.Replace(result, "[]]", "cos");
-                result = Regex.Replace(result, "[!]", "tan");
-                result = Regex.Replace(result, "[?]", "ln");
-                result = Regex.Replace(result, "[#]", "exp");
-                result = Regex.Replace(result, "[%]", "sqrt");
+                string result = Tree.Output();
+
                 textBox2.Text = result;
-            //}
-            //catch (Exception exc)
-            //{
-            //    MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+            }
+            catch (ExpressionException ex)
+            {
+                MessageBox.Show(ResourceManager.GetString(ex.GetType().Name) + $" [{ex.Node}]");
+            }
+            
         }
 
         private void chkbtnSimplify_CheckedChanged(object sender, EventArgs e)
@@ -66,21 +65,11 @@ namespace KursProject1 {
 
         private void btnSimplify_Click(object sender, EventArgs e)
         {
-            //try {
-                Tree?.ProcessTree(new Context.SimplifyContext(new SimplifyStrategiesSetter(), chkSimpliestForm?.Checked ?? false));
-                string result = Tree.Head.Output();
-                result = Regex.Replace(result, "[[]", "sin");
-                result = Regex.Replace(result, "[]]", "cos");
-                result = Regex.Replace(result, "[!]", "tan");
-                result = Regex.Replace(result, "[?]", "ln");
-                result = Regex.Replace(result, "[#]", "exp");
-                result = Regex.Replace(result, "[%]", "sqrt");
-                textBox2.Text = result;
-           // }
-            //catch (Exception exc)
-            //{
-            //    MessageBox.Show(exc.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //}
+
+            Tree?.ProcessTree(new SimplifyContext(new SimplifyStrategiesSetter(), chkSimpliestForm?.Checked ?? false));
+            string result = Tree?.Output();
+            textBox2.Text = result;
+
         }
 
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,6 +111,7 @@ namespace KursProject1 {
         private void ChangeLanguage(string culture)
         {
             var cultureInfo = new CultureInfo(culture);
+            Thread.CurrentThread.CurrentUICulture = cultureInfo;
             var forms = Application.OpenForms;
             foreach (var form in forms)
             {
@@ -144,7 +134,7 @@ namespace KursProject1 {
             {
                 foreach (ToolStripMenuItem c in (control as MenuStrip).Items)
                 {
-                    ChangeMetuItem(c as ToolStripMenuItem, info, manager);
+                    ChangeMetuItem(c, info, manager);
                     manager.ApplyResources(c, c.Name, info);
                 }
             }
