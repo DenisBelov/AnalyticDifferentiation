@@ -21,6 +21,15 @@ namespace KursProject1.SimplifyStrategies
                 };
                 return element;
             }
+            if (element.Right.Type == NodeType.MinusU && element.Left.Node == "0")
+            {
+                element = new ElementOfTree
+                {
+                    Type = NodeType.Const,
+                    Node = "1"
+                };
+                return element;
+            }
             ((SimplifyContext)context).IsChanged = false;
             return element;
         }
