@@ -33,25 +33,24 @@ namespace KursProject1
         /// </summary>
         private void InitializeComponent()
         {
-            ComponentResourceManager resources = new ComponentResourceManager(typeof(MainForm));
-            this.btnProcess = new Button();
-            this.textBox1 = new TextBox();
-            this.textBox2 = new TextBox();
-            this.menuStrip1 = new MenuStrip();
-            this.fileToolStripMenuItem = new ToolStripMenuItem();
-            this.открытьToolStripMenuItem = new ToolStripMenuItem();
-            this.helpToolStripMenuItem = new ToolStripMenuItem();
-            this.языкToolStripMenuItem = new ToolStripMenuItem();
-            this.englshToolStripMenuItem = new ToolStripMenuItem();
-            this.franceToolStripMenuItem1 = new ToolStripMenuItem();
-            this.русскийToolStripMenuItem1 = new ToolStripMenuItem();
-            this.label1 = new Label();
-            this.DifferentiationBox = new GroupBox();
-            this.chkSimpliestForm = new CheckBox();
-            this.chkSimplify = new CheckBox();
-            this.btnSimplify = new Button();
-            this.label2 = new Label();
-            this.openFileDialog1 = new OpenFileDialog();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.btnProcess = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.языкToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englshToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.franceToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.русскийToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DifferentiationBox = new System.Windows.Forms.GroupBox();
+            this.chkSimplify = new System.Windows.Forms.CheckBox();
+            this.btnSimplify = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.DifferentiationBox.SuspendLayout();
             this.SuspendLayout();
@@ -61,7 +60,7 @@ namespace KursProject1
             resources.ApplyResources(this.btnProcess, "btnProcess");
             this.btnProcess.Name = "btnProcess";
             this.btnProcess.UseVisualStyleBackColor = true;
-            this.btnProcess.Click += new EventHandler(this.button1_Click);
+            this.btnProcess.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -76,8 +75,8 @@ namespace KursProject1
             // menuStrip1
             // 
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
-            this.menuStrip1.BackColor = SystemColors.ButtonHighlight;
-            this.menuStrip1.Items.AddRange(new ToolStripItem[] {
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.языкToolStripMenuItem});
@@ -86,7 +85,7 @@ namespace KursProject1
             // fileToolStripMenuItem
             // 
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] {
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             // 
@@ -94,18 +93,18 @@ namespace KursProject1
             // 
             resources.ApplyResources(this.открытьToolStripMenuItem, "открытьToolStripMenuItem");
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Click += new EventHandler(this.открытьToolStripMenuItem_Click);
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
             resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Click += new EventHandler(this.helpToolStripMenuItem_Click);
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // языкToolStripMenuItem
             // 
             resources.ApplyResources(this.языкToolStripMenuItem, "языкToolStripMenuItem");
-            this.языкToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] {
+            this.языкToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.englshToolStripMenuItem,
             this.franceToolStripMenuItem1,
             this.русскийToolStripMenuItem1});
@@ -115,19 +114,19 @@ namespace KursProject1
             // 
             resources.ApplyResources(this.englshToolStripMenuItem, "englshToolStripMenuItem");
             this.englshToolStripMenuItem.Name = "englshToolStripMenuItem";
-            this.englshToolStripMenuItem.Click += new EventHandler(this.englishToolStripMenuItem2_Click);
+            this.englshToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem2_Click);
             // 
             // franceToolStripMenuItem1
             // 
             resources.ApplyResources(this.franceToolStripMenuItem1, "franceToolStripMenuItem1");
             this.franceToolStripMenuItem1.Name = "franceToolStripMenuItem1";
-            this.franceToolStripMenuItem1.Click += new EventHandler(this.françaisToolStripMenuItem1_Click);
+            this.franceToolStripMenuItem1.Click += new System.EventHandler(this.françaisToolStripMenuItem1_Click);
             // 
             // русскийToolStripMenuItem1
             // 
             resources.ApplyResources(this.русскийToolStripMenuItem1, "русскийToolStripMenuItem1");
             this.русскийToolStripMenuItem1.Name = "русскийToolStripMenuItem1";
-            this.русскийToolStripMenuItem1.Click += new EventHandler(this.русскийToolStripMenuItem3_Click);
+            this.русскийToolStripMenuItem1.Click += new System.EventHandler(this.русскийToolStripMenuItem3_Click);
             // 
             // label1
             // 
@@ -137,7 +136,6 @@ namespace KursProject1
             // DifferentiationBox
             // 
             resources.ApplyResources(this.DifferentiationBox, "DifferentiationBox");
-            this.DifferentiationBox.Controls.Add(this.chkSimpliestForm);
             this.DifferentiationBox.Controls.Add(this.chkSimplify);
             this.DifferentiationBox.Controls.Add(this.btnSimplify);
             this.DifferentiationBox.Controls.Add(this.textBox1);
@@ -148,25 +146,19 @@ namespace KursProject1
             this.DifferentiationBox.Name = "DifferentiationBox";
             this.DifferentiationBox.TabStop = false;
             // 
-            // chkSimpliestForm
-            // 
-            resources.ApplyResources(this.chkSimpliestForm, "chkSimpliestForm");
-            this.chkSimpliestForm.Name = "chkSimpliestForm";
-            this.chkSimpliestForm.UseVisualStyleBackColor = true;
-            // 
             // chkSimplify
             // 
             resources.ApplyResources(this.chkSimplify, "chkSimplify");
             this.chkSimplify.Name = "chkSimplify";
             this.chkSimplify.UseVisualStyleBackColor = true;
-            this.chkSimplify.CheckedChanged += new EventHandler(this.chkbtnSimplify_CheckedChanged);
+            this.chkSimplify.CheckedChanged += new System.EventHandler(this.chkbtnSimplify_CheckedChanged);
             // 
             // btnSimplify
             // 
             resources.ApplyResources(this.btnSimplify, "btnSimplify");
             this.btnSimplify.Name = "btnSimplify";
             this.btnSimplify.UseVisualStyleBackColor = true;
-            this.btnSimplify.Click += new EventHandler(this.btnSimplify_Click);
+            this.btnSimplify.Click += new System.EventHandler(this.btnSimplify_Click);
             // 
             // label2
             // 
@@ -181,7 +173,7 @@ namespace KursProject1
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
-            this.AutoScaleMode = AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DifferentiationBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -208,7 +200,6 @@ namespace KursProject1
         private Label label2;
         private CheckBox chkSimplify;
         private Button btnSimplify;
-        private CheckBox chkSimpliestForm;
         private ToolStripMenuItem открытьToolStripMenuItem;
         private OpenFileDialog openFileDialog1;
         private ToolStripMenuItem языкToolStripMenuItem;

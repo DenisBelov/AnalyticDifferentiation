@@ -44,10 +44,10 @@ namespace KursProject1 {
             {
                 MessageBox.Show(ResourceManager.GetString(ex.GetType().Name) + $" [{ex.Node}]");
             }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void chkbtnSimplify_CheckedChanged(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace KursProject1 {
 
         private void btnSimplify_Click(object sender, EventArgs e)
         {
-            Tree?.ProcessTree(new SimplifyContext(new SimplifyStrategiesSetter(), chkSimpliestForm?.Checked ?? false));
+            Tree?.ProcessTree(new SimplifyContext(new SimplifyStrategiesSetter(), chkSimplify?.Checked ?? false));
             string result = Tree?.Output();
             textBox2.Text = result;
         }

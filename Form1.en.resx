@@ -124,20 +124,20 @@
   <data name="открытьToolStripMenuItem.Text" xml:space="preserve">
     <value>Open</value>
   </data>
-  <data name="englishToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 22</value>
-  </data>
-  <data name="françaisToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 22</value>
-  </data>
-  <data name="русскийToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 22</value>
+  <data name="englshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
   </data>
   <data name="englshToolStripMenuItem.Text" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="franceToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
+  </data>
   <data name="franceToolStripMenuItem1.Text" xml:space="preserve">
     <value>Français</value>
+  </data>
+  <data name="русскийToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>119, 22</value>
   </data>
   <data name="русскийToolStripMenuItem1.Text" xml:space="preserve">
     <value>Русский</value>

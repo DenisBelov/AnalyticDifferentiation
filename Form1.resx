@@ -140,6 +140,9 @@
     <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btnProcess.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
   <data name="chkSimpliestForm.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
@@ -231,6 +234,9 @@
   <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
+  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>101, 61</value>
+  </data>
   <data name="русскийToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
   </data>
@@ -280,7 +286,7 @@
     <value>217, 87</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="&gt;&gt;langageToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -300,9 +306,6 @@
   <data name="&gt;&gt;chkSimpliestForm.Parent" xml:space="preserve">
     <value>DifferentiationBox</value>
   </data>
-  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
-    <value>textBox2</value>
-  </data>
   <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>101, 22</value>
   </data>
@@ -310,10 +313,7 @@
     <value>6, 25</value>
   </data>
   <data name="&gt;&gt;btnSimplify.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="открытьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;chkSimplify.Name" xml:space="preserve">
     <value>chkSimplify</value>
@@ -329,6 +329,9 @@
   </data>
   <data name="&gt;&gt;englishToolStripMenuItem.Name" xml:space="preserve">
     <value>englishToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;chkSimplify.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;русскийToolStripMenuItem3.Name" xml:space="preserve">
     <value>русскийToolStripMenuItem3</value>
@@ -385,19 +388,13 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="&gt;&gt;btnProcess.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;DifferentiationBox.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;русскийToolStripMenuItem1.Name" xml:space="preserve">
     <value>русскийToolStripMenuItem1</value>
   </data>
   <data name="chkSimplify.Text" xml:space="preserve">
     <value>Simplify by default</value>
-  </data>
-  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="françaisToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>152, 22</value>
@@ -427,7 +424,7 @@
     <value>5</value>
   </data>
   <data name="&gt;&gt;chkSimplify.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;englishToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -462,14 +459,14 @@
   <data name="DifferentiationBox.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>DifferentiationBox</value>
+  <data name="&gt;&gt;DifferentiationBox.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
     <value>Result expression</value>
@@ -495,11 +492,11 @@
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
   </data>
-  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>438, 20</value>
-  </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Expression</value>
+  </data>
+  <data name="franceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>152, 22</value>
   </data>
   <data name="&gt;&gt;englishToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -514,7 +511,7 @@
     <value>menuStrip1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -522,8 +519,8 @@
   <data name="chkSimplify.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
   </data>
-  <data name="textBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 61</value>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 64</value>
@@ -540,6 +537,9 @@
   <data name="btnProcess.Location" type="System.Drawing.Point, System.Drawing">
     <value>543, 21</value>
   </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>DifferentiationBox</value>
+  </data>
   <data name="&gt;&gt;françaisToolStripMenuItem.Name" xml:space="preserve">
     <value>françaisToolStripMenuItem</value>
   </data>
@@ -552,14 +552,14 @@
   <data name="&gt;&gt;btnSimplify.Parent" xml:space="preserve">
     <value>DifferentiationBox</value>
   </data>
-  <data name="&gt;&gt;chkSimplify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="textBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>438, 20</value>
   </data>
   <data name="открытьToolStripMenuItem.Text" xml:space="preserve">
     <value>Открыть</value>
   </data>
-  <data name="franceToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+  <data name="открытьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
   </data>
   <data name="chkSimplify.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -571,10 +571,10 @@
     <value>menuStrip1</value>
   </data>
   <data name="&gt;&gt;textBox2.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
-  <data name="btnProcess.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+  <data name="&gt;&gt;textBox2.Name" xml:space="preserve">
+    <value>textBox2</value>
   </data>
   <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
