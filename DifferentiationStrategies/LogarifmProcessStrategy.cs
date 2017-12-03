@@ -6,16 +6,16 @@ namespace KursProject1.DifferentiationStrategies
     {
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
-            element.Node = "*";
+            element.Value = "*";
             element.Type = NodeType.Multiply;
             element.Right = new ElementOfTree
             {
-                Node = "/",
+                Value = "/",
                 Type = NodeType.Divide,
                 Left = new ElementOfTree
                 {
                     Type = NodeType.Const,
-                    Node = "1"
+                    Value = "1"
                 },
                 Right = element.Left
             };

@@ -7,7 +7,7 @@ namespace KursProject1.DifferentiationStrategies
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
             element.Type = NodeType.Const;
-            element.Node = "0";
+            element.Value = "0";
             return element;
         }
     }

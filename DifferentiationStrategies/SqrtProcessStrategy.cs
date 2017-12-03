@@ -12,23 +12,23 @@ namespace KursProject1.DifferentiationStrategies {
                     Left = new ElementOfTree
                     {
                         Type = NodeType.Const,
-                        Node = "1"
+                        Value = "1"
                     },
                     Right = new ElementOfTree
                     {
                         Left = new ElementOfTree
                         {
                             Type = NodeType.Const,
-                            Node = "2"
+                            Value = "2"
                         },
                         Right = element,
                         Type = NodeType.Multiply,
-                        Node = "*"
+                        Value = "*"
                     },
-                    Node = "/",
+                    Value = "/",
                     Type = NodeType.Divide
                 },
-                Node = "*",
+                Value = "*",
                 Type = NodeType.Multiply
             };
             return result;

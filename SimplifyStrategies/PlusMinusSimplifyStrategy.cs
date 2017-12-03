@@ -8,26 +8,26 @@ namespace KursProject1.SimplifyStrategies {
             if (element.Left.Type == NodeType.Const && element.Right.Type == NodeType.Const)
             {
                 int a, b;
-                if (int.TryParse(element.Left.Node, out a) && int.TryParse(element.Right.Node, out b))
+                if (int.TryParse(element.Left.Value, out a) && int.TryParse(element.Right.Value, out b))
                 {
-                    element.Node = element.Node == "+" ? (a + b).ToString() : (a - b).ToString();
+                    element.Value = element.Value == "+" ? (a + b).ToString() : (a - b).ToString();
                     element.Type = NodeType.Const;
                     element.Right = null;
                     element.Left = null;
                     return element;
                 }
             }
-            if(element.Right.Type == NodeType.Const && element.Right.Node == "0")
+            if(element.Right.Type == NodeType.Const && element.Right.Value == "0")
             {
                 element = element.Left;
                 return element;
             }
-            if (element.Left.Type == NodeType.Const && element.Left.Node == "0")
+            if (element.Left.Type == NodeType.Const && element.Left.Value == "0")
             {
-                if (element.Node == "-")
+                if (element.Value == "-")
                 {
                     element.Type = NodeType.MinusU;
-                    element.Node = "-";
+                    element.Value = "-";
                     element.Left = element.Right;
                     element.Right = null;
                 }
@@ -43,9 +43,9 @@ namespace KursProject1.SimplifyStrategies {
                 var tempElemL = element.Left.Left.Copy();
                 
                 int a, b;
-                if (int.TryParse(tempElemL.Node, out a) && int.TryParse(tempElemR.Node, out b)) {
+                if (int.TryParse(tempElemL.Value, out a) && int.TryParse(tempElemR.Value, out b)) {
                     element = element.Right;
-                    element.Left.Node = (a + b).ToString();
+                    element.Left.Value = (a + b).ToString();
                     return element;
                 }
                 return element;
@@ -55,23 +55,23 @@ namespace KursProject1.SimplifyStrategies {
                 element.Type = NodeType.Multiply;
                 element.Left = new ElementOfTree
                 {
-                    Node = "2",
+                    Value = "2",
                     Type = NodeType.Const
                 };
-                element.Node = "*";
+                element.Value = "*";
             }
             if (element.Right?.Type == NodeType.MinusU && element.Left.Type == NodeType.Const)
             {
                 int a, b;
-                if (int.TryParse(element.Right?.Left.Node, out a) && int.TryParse(element.Left.Node, out b))
+                if (int.TryParse(element.Right?.Left.Value, out a) && int.TryParse(element.Left.Value, out b))
                 {
-                    if (element.Node == "-")
+                    if (element.Value == "-")
                     {
-                        element.Right.Left.Node = (a + b).ToString();
+                        element.Right.Left.Value = (a + b).ToString();
                     }
                     else
                     {
-                        element.Right.Left.Node = (a - b).ToString();
+                        element.Right.Left.Value = (a - b).ToString();
                     }
                     element = element.Right;
                     return element;

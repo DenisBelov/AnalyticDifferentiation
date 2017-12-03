@@ -14,7 +14,7 @@ namespace KursProject1 {
                 Determinate(element.Right);
             }
             Regex Const= new Regex("[x]", RegexOptions.IgnoreCase);
-            switch (element.Node)
+            switch (element.Value)
             {
                 case "-":
                     if (element.Right == null)

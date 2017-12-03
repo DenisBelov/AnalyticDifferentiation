@@ -7,27 +7,27 @@ namespace KursProject1.DifferentiationStrategies
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
             element.Type = NodeType.Multiply;
-            element.Node = "*";
+            element.Value = "*";
             var tempL = element.Left.Copy();
             var tempR = element.Right.Copy();
             element.Left = context.Process(element.Left);
             element.Right = new ElementOfTree
             {
-                Node = "*",
+                Value = "*",
                 Type = NodeType.Multiply,
                 Left = tempR,
                 Right = new ElementOfTree
                 {
-                    Node = "^",
+                    Value = "^",
                     Type = NodeType.Degree,
                     Right = new ElementOfTree
                     {
                         Type = NodeType.PlusMinus,
-                        Node = "-",
+                        Value = "-",
                         Left = element.Right.Copy(),
                         Right =  new ElementOfTree
                         {
-                            Node = "1",
+                            Value = "1",
                             Type = NodeType.Const
                         }
                     },

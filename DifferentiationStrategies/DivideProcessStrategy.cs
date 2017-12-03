@@ -9,18 +9,18 @@ namespace KursProject1.DifferentiationStrategies
             element.Left = new ElementOfTree
             {
                 Type = NodeType.PlusMinus,
-                Node = "-",
+                Value = "-",
                 Left = new ElementOfTree
                 {
                     Type = NodeType.Multiply,
-                    Node = "*",
+                    Value = "*",
                     Left = context.Process(element.Left.Copy()),
                     Right = element.Right
                 },
                 Right = new ElementOfTree
                 {
                     Type = NodeType.Multiply,
-                    Node="*",
+                    Value="*",
                     Left = element.Left,
                     Right = context.Process(element.Right.Copy())
                 }
@@ -28,12 +28,12 @@ namespace KursProject1.DifferentiationStrategies
             element.Right = new ElementOfTree
             {
                 Type = NodeType.Degree,
-                Node="^",
+                Value="^",
                 Left = element.Right,
                 Right = new ElementOfTree
                 {
                     Type = NodeType.Const,
-                    Node = "2"
+                    Value = "2"
                 }
             };
             return element;

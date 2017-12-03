@@ -8,15 +8,15 @@ namespace KursProject1.DifferentiationStrategies
         {
             var tempElem = element.Copy();
             tempElem.Type = NodeType.Sin;
-            tempElem.Node = tempElem.Node.Replace("]", "[");
+            tempElem.Value = tempElem.Value.Replace("]", "[");
             element.Left = context.Process(element.Left.Copy());
             element.Right = new ElementOfTree
             {
-                Node = "-",
+                Value = "-",
                 Type = NodeType.MinusU,
                 Left = tempElem
             };
-            element.Node = "*";
+            element.Value = "*";
             element.Type = NodeType.Multiply;
             return element;
         }

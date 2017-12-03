@@ -10,12 +10,12 @@ namespace KursProject1.DifferentiationStrategies
             element.Right = new ElementOfTree
             {
                 Type = NodeType.Cos,
-                Node = element.Node.Replace("[", "]"),
+                Value = element.Value.Replace("[", "]"),
                 Left = element.Left
             };
             element.Left = context.Process(tempElem.Left);    
             element.Type = NodeType.Multiply;
-            element.Node = "*";
+            element.Value = "*";
             return element;
         }
     }

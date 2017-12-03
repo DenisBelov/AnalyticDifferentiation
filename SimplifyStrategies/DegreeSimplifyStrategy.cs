@@ -7,26 +7,26 @@ namespace KursProject1.SimplifyStrategies
         public ElementOfTree Process(ElementOfTree element, IContext context)
         {
             ((SimplifyContext) context).IsChanged = true;
-            if (element.Right.Type == NodeType.Const && element.Right.Node == "1")
+            if (element.Right.Type == NodeType.Const && element.Right.Value == "1")
             {
                 element = element.Left;
                 return element;
             }
-            if (element.Right.Type == NodeType.Const && element.Right.Node == "0")
+            if (element.Right.Type == NodeType.Const && element.Right.Value == "0")
             {
                 element = new ElementOfTree
                 {
                     Type = NodeType.Const,
-                    Node = "1"
+                    Value = "1"
                 };
                 return element;
             }
-            if (element.Right.Type == NodeType.MinusU && element.Left.Node == "0")
+            if (element.Right.Type == NodeType.MinusU && element.Left.Value == "0")
             {
                 element = new ElementOfTree
                 {
                     Type = NodeType.Const,
-                    Node = "1"
+                    Value = "1"
                 };
                 return element;
             }

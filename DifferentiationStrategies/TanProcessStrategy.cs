@@ -9,33 +9,33 @@ namespace KursProject1.DifferentiationStrategies {
                 Right = new ElementOfTree
                 {
                     Type = NodeType.Degree,
-                    Node = "^",
+                    Value = "^",
                     Right = new ElementOfTree
                     {
-                        Node = "2",
+                        Value = "2",
                         Type = NodeType.Const
                     },
                     Left = new ElementOfTree
                     {
                         Type = NodeType.Cos,
-                        Node = "]",
+                        Value = "]",
                         Left = element.Left
                     }
                 },
                 Left = new ElementOfTree
                 {
-                    Node = "1",
+                    Value = "1",
                     Type = NodeType.Const
                 },
                 Type = NodeType.Divide,
-                Node = "/"
+                Value = "/"
             };
             var result = new ElementOfTree
             {
                 Left = leftResult,
                 Right = context.Process(element.Left.Copy()),
                 Type = NodeType.Multiply,
-                Node = "*"
+                Value = "*"
             };
             return result;
         }

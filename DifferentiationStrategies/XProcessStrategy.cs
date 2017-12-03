@@ -8,7 +8,7 @@ namespace KursProject1.DifferentiationStrategies
         {
             element.Type = NodeType.Const;
             element.Left = null;
-            element.Node = "1";
+            element.Value = "1";
             return element;
         }
     }
