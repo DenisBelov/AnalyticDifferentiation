@@ -7,7 +7,7 @@ namespace KursProject1.Exceptions
         public override string Message { get; }
 
         public string Node {
-            get => _node;
+            get { return _node; } 
             set {
                 if (string.IsNullOrWhiteSpace(_node))
                 {

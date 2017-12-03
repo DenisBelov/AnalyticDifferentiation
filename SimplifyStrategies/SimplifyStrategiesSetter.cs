@@ -13,7 +13,6 @@ namespace KursProject1.SimplifyStrategies
                 {NodeType.PlusMinus,  new List<IStrategy>{new PlusMinusSimplifyStrategy()}},
                 {NodeType.Degree, new List<IStrategy>{new DegreeSimplifyStrategy()} },
                 {NodeType.Divide, new List<IStrategy>{new DivideSimplifyStrategy()} },
-                {NodeType.Multiply, new List<IStrategy>{new NodeOrderSimplifyStrategy()} }
             };
         }
     }
