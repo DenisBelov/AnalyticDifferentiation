@@ -37,7 +37,7 @@ namespace KursProject1 {
                 if (chkSimplify?.Checked ?? false)
                 {
                     Tree.ProcessTree(new SimplifyContext(new SimplifyStrategiesSetter(),
-                        chkSimpliestForm?.Checked ?? false));
+                        chkSimplify?.Checked ?? false));
                 }
                 string result = Tree.Output();
 
