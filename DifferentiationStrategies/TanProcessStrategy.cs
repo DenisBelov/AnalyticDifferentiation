@@ -13,7 +13,7 @@ namespace KursProject1.DifferentiationStrategies {
                     Right = new ElementOfTree
                     {
                         Node = "2",
-                        Type = NodeType.Const,
+                        Type = NodeType.Const
                     },
                     Left = new ElementOfTree
                     {
@@ -25,7 +25,7 @@ namespace KursProject1.DifferentiationStrategies {
                 Left = new ElementOfTree
                 {
                     Node = "1",
-                    Type = NodeType.Const,
+                    Type = NodeType.Const
                 },
                 Type = NodeType.Divide,
                 Node = "/"

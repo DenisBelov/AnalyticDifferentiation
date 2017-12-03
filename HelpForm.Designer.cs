@@ -1,9 +1,12 @@
-﻿namespace KursProject1 {
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+
+namespace KursProject1 {
     partial class HelpForm {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -55,6 +58,6 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private RichTextBox richTextBox1;
     }
 }

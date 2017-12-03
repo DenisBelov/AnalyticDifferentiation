@@ -1,4 +1,5 @@
 ﻿using KursProject1.Context;
+
 namespace KursProject1.DifferentiationStrategies
 {
     class SinProcessStrategy : IStrategy

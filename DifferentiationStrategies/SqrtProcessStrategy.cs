@@ -1,5 +1,4 @@
-﻿using System;
-using KursProject1.Context;
+﻿using KursProject1.Context;
 
 namespace KursProject1.DifferentiationStrategies {
     class SqrtProcessStrategy : IStrategy {
