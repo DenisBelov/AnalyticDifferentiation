@@ -39,6 +39,17 @@ namespace KursProject1.SimplifyStrategies
                 element = element.Left;
                 return element;
             }
+            if (element.Right?.Type == NodeType.MinusU && element.Right.Left.Node == "0")
+            {
+                element = element.Right;
+                return element;
+            }
+            if (element.Left?.Type == NodeType.MinusU && element.Left.Left.Node == "0")
+            {
+                element = element.Left;
+                return element;
+            }
+
             if (element.Type == NodeType.Multiply && element.Right?.Left?.Type == NodeType.Const &&
                 element.Left?.Type == NodeType.Const)
             {

@@ -15,11 +15,17 @@ namespace KursProject1.SimplifyStrategies {
                 element = element.Right;
                 return element;
             }
+            if (element.Left.Type == NodeType.MinusU && element.Left.Left.Node == "0")
+            {
+                element = element.Right;
+                return element;
+            }
             if (element.Right.Type == NodeType.Const && element.Right.Node == "1")
             {
                 element = element.Left;
                 return element;
             }
+            ((SimplifyContext) context).IsChanged = false;
             return element;
         }
     }
