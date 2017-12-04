@@ -124,6 +124,12 @@
   <data name="открытьToolStripMenuItem.Text" xml:space="preserve">
     <value>Open</value>
   </data>
+  <data name="языкToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 20</value>
+  </data>
+  <data name="языкToolStripMenuItem.Text" xml:space="preserve">
+    <value>Language</value>
+  </data>
   <data name="englshToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>119, 22</value>
   </data>
@@ -142,12 +148,6 @@
   <data name="русскийToolStripMenuItem1.Text" xml:space="preserve">
     <value>Русский</value>
   </data>
-  <data name="языкToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>71, 20</value>
-  </data>
-  <data name="языкToolStripMenuItem.Text" xml:space="preserve">
-    <value>Language</value>
-  </data>
   <data name="DifferentiationBox.Size" type="System.Drawing.Size, System.Drawing">
     <value>641, 135</value>
   </data>
@@ -155,9 +155,6 @@
     <value>665, 174</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>681, 213</value>
-  </data>
-  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>681, 213</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
