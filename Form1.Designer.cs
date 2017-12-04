@@ -74,58 +74,59 @@ namespace KursProject1
             // 
             // menuStrip1
             // 
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem,
             this.языкToolStripMenuItem});
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
-            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
             // открытьToolStripMenuItem
             // 
-            resources.ApplyResources(this.открытьToolStripMenuItem, "открытьToolStripMenuItem");
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
+            resources.ApplyResources(this.открытьToolStripMenuItem, "открытьToolStripMenuItem");
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
-            resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            resources.ApplyResources(this.helpToolStripMenuItem, "helpToolStripMenuItem");
             this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // языкToolStripMenuItem
             // 
-            resources.ApplyResources(this.языкToolStripMenuItem, "языкToolStripMenuItem");
             this.языкToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.englshToolStripMenuItem,
             this.franceToolStripMenuItem1,
             this.русскийToolStripMenuItem1});
             this.языкToolStripMenuItem.Name = "языкToolStripMenuItem";
+            resources.ApplyResources(this.языкToolStripMenuItem, "языкToolStripMenuItem");
             // 
             // englshToolStripMenuItem
             // 
-            resources.ApplyResources(this.englshToolStripMenuItem, "englshToolStripMenuItem");
             this.englshToolStripMenuItem.Name = "englshToolStripMenuItem";
+            resources.ApplyResources(this.englshToolStripMenuItem, "englshToolStripMenuItem");
             this.englshToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem2_Click);
             // 
             // franceToolStripMenuItem1
             // 
-            resources.ApplyResources(this.franceToolStripMenuItem1, "franceToolStripMenuItem1");
             this.franceToolStripMenuItem1.Name = "franceToolStripMenuItem1";
+            resources.ApplyResources(this.franceToolStripMenuItem1, "franceToolStripMenuItem1");
             this.franceToolStripMenuItem1.Click += new System.EventHandler(this.françaisToolStripMenuItem1_Click);
             // 
             // русскийToolStripMenuItem1
             // 
-            resources.ApplyResources(this.русскийToolStripMenuItem1, "русскийToolStripMenuItem1");
             this.русскийToolStripMenuItem1.Name = "русскийToolStripMenuItem1";
+            resources.ApplyResources(this.русскийToolStripMenuItem1, "русскийToolStripMenuItem1");
             this.русскийToolStripMenuItem1.Click += new System.EventHandler(this.русскийToolStripMenuItem3_Click);
             // 
             // label1
@@ -168,7 +169,6 @@ namespace KursProject1
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
             // 
             // MainForm
             // 
@@ -176,6 +176,7 @@ namespace KursProject1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.DifferentiationBox);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.menuStrip1.ResumeLayout(false);
