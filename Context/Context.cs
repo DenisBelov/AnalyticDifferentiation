@@ -2,11 +2,11 @@
 
 namespace KursProject1.Context
 {
-    class Context : IContext
+    class DifferentiationContext : IContext
     {
         readonly IDictionary<NodeType, List<IStrategy>> _strategies;
 
-        public Context(IStrategiesSetter setter)
+        public DifferentiationContext(IStrategiesSetter setter)
         {
             _strategies = setter.GetStrategies();
         }
