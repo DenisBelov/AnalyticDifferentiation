@@ -32,7 +32,7 @@ namespace KursProject1 {
                 Tree = new Tree(function);
 
 
-                Tree.ProcessTree(new Context.Context(new DifferentiationStrategiesSetter()));
+                Tree.ProcessTree(new Context.DifferentiationContext(new DifferentiationStrategiesSetter()));
 
                 if (chkSimplify?.Checked ?? false)
                 {
