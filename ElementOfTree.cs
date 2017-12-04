@@ -152,7 +152,7 @@ namespace KursProject1
             }
         }
 
-        public void T(string partOfString)
+        private void T(string partOfString)
         {
             if (String.IsNullOrWhiteSpace(partOfString))
             {
@@ -235,7 +235,7 @@ namespace KursProject1
             }
         }
 
-        public void M(string partOfString)
+        private void M(string partOfString)
         {
             if (String.IsNullOrWhiteSpace(partOfString))
             {
@@ -269,7 +269,7 @@ namespace KursProject1
             }
         }
 
-        public void Z(string pertOfString)
+        private void Z(string pertOfString)
         {
             if (String.IsNullOrWhiteSpace(pertOfString))
             {
@@ -312,7 +312,7 @@ namespace KursProject1
             }
         }
 
-        public void N(string partOfString)
+        private void N(string partOfString)
         {
             if (String.IsNullOrWhiteSpace(partOfString))
             {
@@ -329,7 +329,7 @@ namespace KursProject1
             throw new IncorrectNumberDefinitionException();
         }
 
-        public void F(string partOfString)
+        private void F(string partOfString)
         {
             if (String.IsNullOrWhiteSpace(partOfString))
             {
