@@ -323,6 +323,7 @@ namespace KursProject1
             if (number.IsMatch(s))
             {
                 Value = s;
+                Type = NodeType.Const;
                 return;
             }
             throw new IncorrectNumberDefinitionException();

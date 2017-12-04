@@ -24,12 +24,12 @@ namespace KursProject1 {
         private void button1_Click(object sender, EventArgs e)
         {
             
-            var s = textBox1.Text.Replace(" ", String.Empty);
+            var function = textBox1.Text.Replace(" ", String.Empty);
 
 
             try
             {
-                Tree = new Tree(s);
+                Tree = new Tree(function);
 
 
                 Tree.ProcessTree(new Context.Context(new DifferentiationStrategiesSetter()));
