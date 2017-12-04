@@ -103,58 +103,58 @@ namespace KursProject1
             return Value;
         }
 
-        public void S(string s)
+        public void S(string partOfstring)
         {
-            if (String.IsNullOrWhiteSpace(s))
+            if (String.IsNullOrWhiteSpace(partOfstring))
             {
                 throw new EmptyMemberException();
             }
             try
             {
                 int sk = 0;
-                for (int i = s.Length - 1; i >= 0; i--)
+                for (int i = partOfstring.Length - 1; i >= 0; i--)
                 {
-                    if (s[i] == '(')
+                    if (partOfstring[i] == '(')
                     {
                         sk++;
                         continue;
                     }
-                    if (s[i] == ')')
+                    if (partOfstring[i] == ')')
                     {
                         sk--;
                         continue;
                     }
-                    if ((s[i] == '+' || s[i] == '-' && i != 0) && sk == 0)
+                    if ((partOfstring[i] == '+' || partOfstring[i] == '-' && i != 0) && sk == 0)
                     {
-                        Value = s[i].ToString();
+                        Value = partOfstring[i].ToString();
                         Type = NodeType.PlusMinus;
                         Left = new ElementOfTree();
-                        Left.S(s.Substring(0, i));
+                        Left.S(partOfstring.Substring(0, i));
                         Right = new ElementOfTree();
-                        Right.T(s.Substring(i + 1));
+                        Right.T(partOfstring.Substring(i + 1));
                         return;
                     }
                 }
-                if (s[0] == '-')
+                if (partOfstring[0] == '-')
                 {
-                    Value = s[0].ToString();
+                    Value = partOfstring[0].ToString();
                     Type = NodeType.MinusU;
                     Left = new ElementOfTree();
-                    Left.T(s.Substring(1, s.Length - 1));
+                    Left.T(partOfstring.Substring(1, partOfstring.Length - 1));
                     return;
                 }
-                T(s);
+                T(partOfstring);
             }
             catch (ExpressionException e)
             {
-                e.Node = GetNormalNodeState(s);
+                e.Node = GetNormalNodeState(partOfstring);
                 throw;
             }
         }
 
-        public void T(string s)
+        public void T(string partOfString)
         {
-            if (String.IsNullOrWhiteSpace(s))
+            if (String.IsNullOrWhiteSpace(partOfString))
             {
                 throw new EmptyMemberException();
             }
@@ -164,31 +164,31 @@ namespace KursProject1
                 int divide = -1;
                 int multiply = -1;
                 int degree = -1;
-                for (int i = s.Length - 1; i >= 0; i--)
+                for (int i = partOfString.Length - 1; i >= 0; i--)
                 {
-                    if (s[i] == '(')
+                    if (partOfString[i] == '(')
                     {
                         sk++;
                     }
                     else
-                    if (s[i] == ')')
+                    if (partOfString[i] == ')')
                     {
                         sk--;
                     }
                     else
                     if (sk == 0)
                     {
-                        if (s[i] == '/' && divide == -1)
+                        if (partOfString[i] == '/' && divide == -1)
                         {
                             divide = i;
                         }
                         else
-                        if (s[i] == '*' && multiply == -1)
+                        if (partOfString[i] == '*' && multiply == -1)
                         {
                             multiply = i;
                         }
                         else
-                        if (s[i] == '^' && degree == -1)
+                        if (partOfString[i] == '^' && degree == -1)
                         {
                             degree = i;
                         }
@@ -197,155 +197,155 @@ namespace KursProject1
 
                 if (divide != -1)
                 {
-                    Value = s[divide].ToString();
+                    Value = partOfString[divide].ToString();
                     Type = NodeType.Divide;
                     Left = new ElementOfTree();
-                    Left.T(s.Substring(0, divide));
+                    Left.T(partOfString.Substring(0, divide));
                     Right = new ElementOfTree();
-                    Right.T(s.Substring(divide + 1));
+                    Right.T(partOfString.Substring(divide + 1));
                     return;
                 }
                 if (multiply != -1)
                 {
-                    Value = s[multiply].ToString();
+                    Value = partOfString[multiply].ToString();
                     Type = NodeType.Multiply;
                     Left = new ElementOfTree();
-                    Left.T(s.Substring(0, multiply));
+                    Left.T(partOfString.Substring(0, multiply));
                     Right = new ElementOfTree();
-                    Right.T(s.Substring(multiply + 1));
+                    Right.T(partOfString.Substring(multiply + 1));
                     return;
                 }
                 if (degree != -1)
                 {
-                    Value = s[degree].ToString();
+                    Value = partOfString[degree].ToString();
                     Type = NodeType.Degree;
                     Left = new ElementOfTree();
-                    Left.T(s.Substring(0, degree));
+                    Left.T(partOfString.Substring(0, degree));
                     Right = new ElementOfTree();
-                    Right.Z(s.Substring(degree + 1));
+                    Right.Z(partOfString.Substring(degree + 1));
                     return;
                 }
-                M(s);
+                M(partOfString);
 
             }
             catch (ExpressionException e)
             {
-                e.Node = GetNormalNodeState(s);
+                e.Node = GetNormalNodeState(partOfString);
                 throw;
             }
         }
 
-        public void M(string s)
+        public void M(string partOfString)
         {
-            if (String.IsNullOrWhiteSpace(s))
+            if (String.IsNullOrWhiteSpace(partOfString))
             {
                 throw new EmptyMemberException();
             }
             try
             {
-                if (s[0] == '(' && s[s.Length - 1] == ')')
+                if (partOfString[0] == '(' && partOfString[partOfString.Length - 1] == ')')
                 {
-                    S(s.Substring(1, s.Length - 2));
+                    S(partOfString.Substring(1, partOfString.Length - 2));
                     return;
                 }
-                if (s[0] > 47 && s[0] < 58 || (new Regex("^([a-w]|[y-z])$", RegexOptions.IgnoreCase)).IsMatch(s))
+                if (partOfString[0] > 47 && partOfString[0] < 58 || (new Regex("^([a-w]|[y-z])$", RegexOptions.IgnoreCase)).IsMatch(partOfString))
                 {
-                    Z(s);
+                    Z(partOfString);
                     return;
                 }
-                if (s == "X" || s == "x")
+                if (partOfString == "X" || partOfString == "x")
                 {
-                    Value = s;
+                    Value = partOfString;
                     Type = NodeType.X;
                     return;
                 }
 
-                F(s);
+                F(partOfString);
             }
             catch (ExpressionException e)
             {
-                e.Node = GetNormalNodeState(s);
+                e.Node = GetNormalNodeState(partOfString);
                 throw;
             }
         }
 
-        public void Z(string s)
+        public void Z(string pertOfString)
         {
-            if (String.IsNullOrWhiteSpace(s))
+            if (String.IsNullOrWhiteSpace(pertOfString))
             {
                 throw new EmptyMemberException();
             }
 
             try
             {
-                if (s[0] == '(' && s[s.Length - 1] == ')')
+                if (pertOfString[0] == '(' && pertOfString[pertOfString.Length - 1] == ')')
                 {
-                    if (s[1] == '-')
+                    if (pertOfString[1] == '-')
                     {
                         Value = "-";
                         Type = NodeType.MinusU;
                         Left = new ElementOfTree();
-                        Left.N(s.Substring(2, s.Length - 3));
+                        Left.N(pertOfString.Substring(2, pertOfString.Length - 3));
                     }
                     else
                     {
                         Type = NodeType.Const;
-                        N(s.Substring(1, s.Length - 2));
+                        N(pertOfString.Substring(1, pertOfString.Length - 2));
                     }
                 }
                 else
                 {
                     Regex constant = new Regex("^([a-w]|[y-z])$", RegexOptions.IgnoreCase);
-                    if (constant.IsMatch(s))
+                    if (constant.IsMatch(pertOfString))
                     {
-                        Value = s;
+                        Value = pertOfString;
                         Type = NodeType.Const;
                         return;
                     }
-                    N(s);
+                    N(pertOfString);
                 }
             }
             catch (ExpressionException e)
             {
-                e.Node = GetNormalNodeState(s);
+                e.Node = GetNormalNodeState(pertOfString);
                 throw;
             }
         }
 
-        public void N(string s)
+        public void N(string partOfString)
         {
-            if (String.IsNullOrWhiteSpace(s))
+            if (String.IsNullOrWhiteSpace(partOfString))
             {
                 throw new EmptyMemberException();
             }
 
             Regex number = new Regex("^[1-9][0-9]*$");
-            if (number.IsMatch(s))
+            if (number.IsMatch(partOfString))
             {
-                Value = s;
+                Value = partOfString;
                 Type = NodeType.Const;
                 return;
             }
             throw new IncorrectNumberDefinitionException();
         }
 
-        public void F(string s)
+        public void F(string partOfString)
         {
-            if (String.IsNullOrWhiteSpace(s))
+            if (String.IsNullOrWhiteSpace(partOfString))
             {
                 throw new EmptyMemberException();
             }
 
             try
             {
-                switch (s[0])
+                switch (partOfString[0])
                 {
-                    case '[': Value = "["; Type = NodeType.Sin; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case ']': Value = "]"; Type = NodeType.Cos; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '!': Value = "!"; Type = NodeType.Tan; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '?': Value = "?"; Type = NodeType.Ln; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '#': Value = "#"; Type = NodeType.Exp; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '%': Value = "%"; Type = NodeType.Sqrt; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case '[': Value = "["; Type = NodeType.Sin; Left = new ElementOfTree(); Left.S(partOfString.Substring(2, partOfString.Length - 3)); return;
+                    case ']': Value = "]"; Type = NodeType.Cos; Left = new ElementOfTree(); Left.S(partOfString.Substring(2, partOfString.Length - 3)); return;
+                    case '!': Value = "!"; Type = NodeType.Tan; Left = new ElementOfTree(); Left.S(partOfString.Substring(2, partOfString.Length - 3)); return;
+                    case '?': Value = "?"; Type = NodeType.Ln; Left = new ElementOfTree(); Left.S(partOfString.Substring(2, partOfString.Length - 3)); return;
+                    case '#': Value = "#"; Type = NodeType.Exp; Left = new ElementOfTree(); Left.S(partOfString.Substring(2, partOfString.Length - 3)); return;
+                    case '%': Value = "%"; Type = NodeType.Sqrt; Left = new ElementOfTree(); Left.S(partOfString.Substring(2, partOfString.Length - 3)); return;
                     default: throw new IncorrectFunctionDefinitionException();
                 }
             }
@@ -367,16 +367,16 @@ namespace KursProject1
             };
         }
 
-        private string GetNormalNodeState(string s)
+        private string GetNormalNodeState(string partOfString)
         {
-            s = Regex.Replace(s, "[[]", "sin");
-            s = Regex.Replace(s, "[]]", "cos");
-            s = Regex.Replace(s, "[!]", "tan");
-            s = Regex.Replace(s, "[?]", "ln");
-            s = Regex.Replace(s, "[#]", "exp");
-            s = Regex.Replace(s, "[%]", "sqrt");
+            partOfString = Regex.Replace(partOfString, "[[]", "sin");
+            partOfString = Regex.Replace(partOfString, "[]]", "cos");
+            partOfString = Regex.Replace(partOfString, "[!]", "tan");
+            partOfString = Regex.Replace(partOfString, "[?]", "ln");
+            partOfString = Regex.Replace(partOfString, "[#]", "exp");
+            partOfString = Regex.Replace(partOfString, "[%]", "sqrt");
 
-            return s;
+            return partOfString;
         }
 
         public override bool Equals(object obj)
