@@ -11,8 +11,8 @@
         Tan,
         Ln,
         Exp,
+        Sqrt,
         X,
-        Const,
-        Sqrt
+        Const
     }
 }

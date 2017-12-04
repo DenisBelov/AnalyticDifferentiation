@@ -7,7 +7,7 @@ namespace KursProject1
     {
         public ElementOfTree Head { get; private set; }
         
-        public Tree(string s, NodeTypeDeterminator determinator)
+        public Tree(string s)
         {
             s = Regex.Replace(s, "[s][i][n]", "[", RegexOptions.IgnoreCase);
             s = Regex.Replace(s, "[c][o][s]", "]", RegexOptions.IgnoreCase);
@@ -18,7 +18,6 @@ namespace KursProject1
 
             Head = new ElementOfTree();
             Head.S(s);
-            determinator.Determinate(Head);
         }
 
         public void ProcessTree(IContext processContext)

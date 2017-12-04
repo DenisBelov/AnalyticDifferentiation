@@ -127,6 +127,7 @@ namespace KursProject1
                     if ((s[i] == '+' || s[i] == '-' && i != 0) && sk == 0)
                     {
                         Value = s[i].ToString();
+                        Type = NodeType.PlusMinus;
                         Left = new ElementOfTree();
                         Left.S(s.Substring(0, i));
                         Right = new ElementOfTree();
@@ -137,6 +138,7 @@ namespace KursProject1
                 if (s[0] == '-')
                 {
                     Value = s[0].ToString();
+                    Type = NodeType.MinusU;
                     Left = new ElementOfTree();
                     Left.T(s.Substring(1, s.Length - 1));
                     return;
@@ -196,6 +198,7 @@ namespace KursProject1
                 if (divide != -1)
                 {
                     Value = s[divide].ToString();
+                    Type = NodeType.Divide;
                     Left = new ElementOfTree();
                     Left.T(s.Substring(0, divide));
                     Right = new ElementOfTree();
@@ -205,6 +208,7 @@ namespace KursProject1
                 if (multiply != -1)
                 {
                     Value = s[multiply].ToString();
+                    Type = NodeType.Multiply;
                     Left = new ElementOfTree();
                     Left.T(s.Substring(0, multiply));
                     Right = new ElementOfTree();
@@ -214,6 +218,7 @@ namespace KursProject1
                 if (degree != -1)
                 {
                     Value = s[degree].ToString();
+                    Type = NodeType.Degree;
                     Left = new ElementOfTree();
                     Left.T(s.Substring(0, degree));
                     Right = new ElementOfTree();
@@ -251,6 +256,7 @@ namespace KursProject1
                 if (s == "X" || s == "x")
                 {
                     Value = s;
+                    Type = NodeType.X;
                     return;
                 }
 
@@ -277,11 +283,13 @@ namespace KursProject1
                     if (s[1] == '-')
                     {
                         Value = "-";
+                        Type = NodeType.MinusU;
                         Left = new ElementOfTree();
                         Left.N(s.Substring(2, s.Length - 3));
                     }
                     else
                     {
+                        Type = NodeType.Const;
                         N(s.Substring(1, s.Length - 2));
                     }
                 }
@@ -291,6 +299,7 @@ namespace KursProject1
                     if (constant.IsMatch(s))
                     {
                         Value = s;
+                        Type = NodeType.Const;
                         return;
                     }
                     N(s);
@@ -330,12 +339,12 @@ namespace KursProject1
             {
                 switch (s[0])
                 {
-                    case '[': Value = "["; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case ']': Value = "]"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '!': Value = "!"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '?': Value = "?"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '#': Value = "#"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
-                    case '%': Value = "%"; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case '[': Value = "["; Type = NodeType.Sin; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case ']': Value = "]"; Type = NodeType.Cos; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case '!': Value = "!"; Type = NodeType.Tan; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case '?': Value = "?"; Type = NodeType.Ln; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case '#': Value = "#"; Type = NodeType.Exp; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
+                    case '%': Value = "%"; Type = NodeType.Sqrt; Left = new ElementOfTree(); Left.S(s.Substring(2, s.Length - 3)); return;
                     default: throw new IncorrectFunctionDefinitionException();
                 }
             }

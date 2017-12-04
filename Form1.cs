@@ -29,7 +29,7 @@ namespace KursProject1 {
 
             try
             {
-                Tree = new Tree(s, new NodeTypeDeterminator());
+                Tree = new Tree(s);
 
 
                 Tree.ProcessTree(new Context.Context(new DifferentiationStrategiesSetter()));
